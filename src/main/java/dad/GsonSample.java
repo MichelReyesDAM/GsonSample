@@ -1,8 +1,6 @@
 package dad;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -32,8 +30,9 @@ public class GsonSample {
 		System.out.println("Por último, dime la edad: ");
 		try{
 			edad=scanner.nextInt();
-		}catch(InputMismatchException e) {
+		}catch(Exception e) {
 			System.out.println("Eso no es un numero! Asegurate de introducir un numero: ");
+			edad=scanner.nextInt();
 		}	
 		Persona p = new Persona(nombre, apellidos, edad);
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
